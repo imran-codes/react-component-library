@@ -1,4 +1,4 @@
-export type PageProps = {
-  title: string;
-  children: React.ReactNode;
-};
+export interface PageProps {
+  title: string
+  children: React.ReactNode
+}
