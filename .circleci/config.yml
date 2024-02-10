@@ -9,7 +9,7 @@ jobs:
     description: "Install dependencies"
     steps:
       - checkout
-      - node/install-
+      - node/install-packages
 
   run_tests:
     executor: node/default
