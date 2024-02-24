@@ -52,6 +52,12 @@ jobs:
       - checkout
       - node/install-packages
       - run:
+          name: Clean npm cache
+          command: npm cache clean -f
+      - run:
+          name: Remove ~/.npmrc
+          command: rm ~/.npmrc
+      - run:
           name: Publish to npm
           command: |
             echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
