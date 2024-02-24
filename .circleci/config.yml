@@ -22,16 +22,17 @@ jobs:
     description: Run tests
     steps:
       - attach_workspace:
-          at: .
+          at: ~/project
       - run:
           name: Run tests
           command: npm run test
+          working_directory: ~/project
   build:
     executor: node/default
     description: Build
     steps:
       - attach_workspace:
-          at: .
+          at: ~/project
       - run:
           name: Build
           command: npm run build
@@ -40,7 +41,7 @@ jobs:
     description: Run release
     steps:
       - attach_workspace:
-          at: .
+          at: ~/project
       - run:
           name: Set up git credentials
           command: |
@@ -54,7 +55,7 @@ jobs:
     description: Publish to npm
     steps:
       - attach_workspace:
-          at: .
+          at: ~/project
       - run:
           name: Login to npm
           command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
