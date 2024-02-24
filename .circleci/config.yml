@@ -13,12 +13,16 @@ jobs:
       - run:
           name: Lint code
           command: npm run lint:fix
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
   run_tests:
     executor: node/default
     description: Run tests
     steps:
-      - checkout
-      - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Run tests
           command: npm run test
@@ -26,8 +30,8 @@ jobs:
     executor: node/default
     description: Build
     steps:
-      - checkout
-      - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Build
           command: npm run build
@@ -35,8 +39,8 @@ jobs:
     executor: node/default
     description: Run release
     steps:
-      - checkout
-      - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Set up git credentials
           command: |
@@ -49,8 +53,8 @@ jobs:
     executor: node/default
     description: Publish to npm
     steps:
-      - checkout
-      - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Login to npm
           command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
