@@ -44,7 +44,7 @@ jobs:
             git config --global user.name $GIT_NAME
       - run:
           name: Run release
-          command: npm run release && git push --follow-tags
+          command: npm run release && git push --follow-tags  origin main
   publish_to_npm:
     executor: node/default
     description: Publish to npm
