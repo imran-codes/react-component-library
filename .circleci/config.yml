@@ -31,6 +31,24 @@ jobs:
       - run:
           name: Build
           command: npm run build
+  run_release:
+    executor: node/default
+    description: Run release
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Run release
+          command: npm run release
+  publish_to_npm:
+    executor: node/default
+    description: Publish to npm
+    steps:
+      - checkout
+      - node/install-packages
+      - run:
+          name: Publish to npm
+          command: npm publish
 
 workflows:
   build_app:
@@ -42,3 +60,9 @@ workflows:
       - build:
           requires:
             - run_tests
+      - run_release:
+          requires:
+            - build
+      - publish_to_npm:
+          requires:
+            - run_release
