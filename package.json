@@ -1,6 +1,6 @@
 {
   "name": "imran-codes-react-component-library",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "This is a react component library from the imran codes youtube channel.",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
