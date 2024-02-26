@@ -96,11 +96,19 @@ workflows:
           requires:
             - build
           filters:
+            branches:
+              ignore:
+                - "*"
             tags:
-              only: /^v.*/
+              only:
+                - /.*/
       - publish_to_npm:
           requires:
             - run_release
           filters:
+            branches:
+              ignore:
+                - "*"
             tags:
-              only: /^v.*/
+              only:
+                - /.*/
