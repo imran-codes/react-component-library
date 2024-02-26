@@ -64,7 +64,7 @@ jobs:
             git config --global user.name $GIT_NAME
       - run:
           name: Run release
-          command: npm run release && git push --follow-tags  "https://${GH_TOKEN}@github.com/imranh481/react-component-library.git" main
+          command: npm run release && git push --follow-tags "https://${GH_TOKEN}@github.com/imran-codes/react-component-library.git" main
   publish_to_npm:
     executor: node/default
     description: Publish to npm
