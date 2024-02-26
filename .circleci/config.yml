@@ -20,6 +20,15 @@ jobs:
           root: .
           paths:
             - node_modules
+            - package-lock.json
+            - package.json
+            - src
+            - .eslintrc.js
+            - .prettierrc.js
+            - .gitignore
+            - .npmignore
+            - .nvmrc
+            - .circleci
   run_tests:
     executor: node/default
     description: Run tests
