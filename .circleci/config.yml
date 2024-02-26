@@ -66,7 +66,7 @@ jobs:
           name: Run release
           command: |
             npm run release
-            git push --follow-tags "https://${GH_TOKEN}@github.com/imran-codes/react-component-library.git" main
+            git push --follow-tags "https://${GH_TOKEN}@github.com/imran-codes/react-component-library.git" release
   publish_to_npm:
     executor: node/default
     description: Publish to npm
@@ -97,18 +97,12 @@ workflows:
             - build
           filters:
             branches:
-              ignore:
-                - "*"
-            tags:
               only:
-                - /.*/
+                - main
       - publish_to_npm:
           requires:
             - run_release
           filters:
             branches:
-              ignore:
-                - "*"
-            tags:
               only:
-                - /.*/
+                - main
