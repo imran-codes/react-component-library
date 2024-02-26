@@ -11,14 +11,21 @@ jobs:
       - checkout
       - node/install-packages
       - run:
+          name: Install dependencies
+          command: npm install
+      - run:
           name: Lint code
           command: npm run lint:fix
+      - persist_to_workspace:
+          root: .
+          paths:
+            - node_modules
   run_tests:
     executor: node/default
     description: Run tests
     steps:
-      - checkout
-      - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Run tests
           command: npm run test
@@ -26,8 +33,8 @@ jobs:
     executor: node/default
     description: Build
     steps:
-      - checkout
-      - node/install-packages
+      - attach_workspace:
+          at: .
       - run:
           name: Build
           command: npm run build
