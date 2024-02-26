@@ -95,6 +95,12 @@ workflows:
       - run_release:
           requires:
             - build
+          filters:
+            tags:
+              only: /^v.*/
       - publish_to_npm:
           requires:
             - run_release
+          filters:
+            tags:
+              only: /^v.*/
