@@ -66,8 +66,6 @@ jobs:
           name: Run release
           command: |
             npm run release
-            git add .
-            git commit -m "Generate release [skip ci]"
             git push --follow-tags "https://${GH_TOKEN}@github.com/imran-codes/react-component-library.git" main
   publish_to_npm:
     executor: node/default
