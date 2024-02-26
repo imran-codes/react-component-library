@@ -29,6 +29,10 @@ jobs:
             - .npmignore
             - .nvmrc
             - .circleci
+            - rollup.config.js
+            - commitlint.config.js
+            - tsconfig.json
+            - .husky
   run_tests:
     executor: node/default
     description: Run tests
