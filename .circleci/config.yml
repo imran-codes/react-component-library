@@ -74,18 +74,18 @@ jobs:
       - checkout
       - node/install-packages
       - run:
-          name: Check if tag exists and publish to npm
+          name: Check if npm version is the same and publish to npm
           command: |
-            if [ -n "$CIRCLE_TAG" ]; then
-              echo "Tag exists. Publishing to npm."
+            CURRENT_VERSION=$(npm show imran-codes-react-component-library version)
+            LOCAL_VERSION=$(node -pe "require('./package.json').version")
+
+            if [ "$CURRENT_VERSION" != "$LOCAL_VERSION" ]; then
+              echo "Versions are different. Publishing to npm."
               echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
               npm publish
             else
-              echo "No tag found. Skipping npm publish."
+              echo "Versions are the same. Skipping npm publish."
             fi
-          environment:
-            NPM_TOKEN: $NPM_TOKEN
-
 workflows:
   build_app:
     jobs:
@@ -99,7 +99,3 @@ workflows:
       - publish_to_npm:
           requires:
             - build
-          filters:
-            tags:
-              only:
-                - /^v\d+\.\d+\.\d+.*$/
