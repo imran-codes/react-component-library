@@ -74,11 +74,15 @@ jobs:
       - checkout
       - node/install-packages
       - run:
-          name: Login to npm
-          command: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-      - run:
-          name: Publish to npm
-          command: npm publish
+          name: Check if tag exists and publish to npm
+          command: |
+            if [ -n "$CIRCLE_TAG" ]; then
+              echo "Tag exists. Publishing to npm."
+              echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+              npm publish
+            else
+              echo "No tag found. Skipping npm publish."
+            fi
           environment:
             NPM_TOKEN: $NPM_TOKEN
 
@@ -92,17 +96,10 @@ workflows:
       - build:
           requires:
             - run_tests
-      - run_release:
+      - publish_to_npm:
           requires:
             - build
           filters:
-            branches:
+            tags:
               only:
-                - main
-      - publish_to_npm:
-          requires:
-            - run_release
-          filters:
-            branches:
-              only:
-                - main
+                - /^v\d+\.\d+\.\d+.*$/
