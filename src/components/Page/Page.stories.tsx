@@ -32,7 +32,7 @@ export const PageOne = {
 
 export const PageTwo = {
   args: {
-    title: "This is the Page Two title",
+    title: "This is the Page Twoooooooooo title",
     children: "These are the Page Two children"
   }
 };
