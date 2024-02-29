@@ -6,7 +6,7 @@ const Page: React.FC<PageProps> = ({ title, children }) => {
   return (
     <Container data-testid="page-container">
       <h1>{title}</h1>
-      {children}
+      <>{children}</>
     </Container>
   );
 };
