@@ -14,14 +14,14 @@ import{r as He,R as re}from"./index-76fb7be0.js";import"./_commonjsHelpers-de833
   justify-content: center;
   height: 90vh;
   background-color: #f5f5f5;
-`,Ye=({title:e,children:t})=>cr(fn,{"data-testid":"page-container",children:[et("h1",{children:e}),et(sr,{children:t})]}),dn=Ye;try{Ye.displayName="Page",Ye.__docgenInfo={description:"",displayName:"Page",props:{title:{defaultValue:null,description:"",name:"title",required:!0,type:{name:"string"}}}}}catch{}const mn={title:"MyComponents/Page",component:dn,parameters:{layout:"centered"},tags:["autodocs"],argTypes:{title:{description:"The title of the Page",control:{type:"text"}},children:{description:"The children of the Page",control:{type:"text"}}}},fe={args:{title:"This is the Page One title",children:"These are the Page One children"}},de={args:{title:"This is the Page Two title",children:"These are the Page Two children"}};var gt,mt,yt;fe.parameters={...fe.parameters,docs:{...(gt=fe.parameters)==null?void 0:gt.docs,source:{originalSource:`{
+`,Ye=({title:e,children:t})=>cr(fn,{"data-testid":"page-container",children:[et("h1",{children:e}),et(sr,{children:t})]}),dn=Ye;try{Ye.displayName="Page",Ye.__docgenInfo={description:"",displayName:"Page",props:{title:{defaultValue:null,description:"",name:"title",required:!0,type:{name:"string"}}}}}catch{}const mn={title:"MyComponents/Page",component:dn,parameters:{layout:"centered"},tags:["autodocs"],argTypes:{title:{description:"The title of the Page",control:{type:"text"}},children:{description:"The children of the Page",control:{type:"text"}}}},fe={args:{title:"This is the Page One title",children:"These are the Page One children"}},de={args:{title:"This is the Page Twoooooooooo title",children:"These are the Page Two children"}};var gt,mt,yt;fe.parameters={...fe.parameters,docs:{...(gt=fe.parameters)==null?void 0:gt.docs,source:{originalSource:`{
   args: {
     title: "This is the Page One title",
     children: "These are the Page One children"
   }
 }`,...(yt=(mt=fe.parameters)==null?void 0:mt.docs)==null?void 0:yt.source}}};var vt,bt,wt;de.parameters={...de.parameters,docs:{...(vt=de.parameters)==null?void 0:vt.docs,source:{originalSource:`{
   args: {
-    title: "This is the Page Two title",
+    title: "This is the Page Twoooooooooo title",
     children: "These are the Page Two children"
   }
 }`,...(wt=(bt=de.parameters)==null?void 0:bt.docs)==null?void 0:wt.source}}};const yn=["PageOne","PageTwo"];export{fe as PageOne,de as PageTwo,yn as __namedExportsOrder,mn as default};
