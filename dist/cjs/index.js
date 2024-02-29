@@ -5090,7 +5090,7 @@ const Container = ut.div `
 `;
 
 const Page = ({ title, children }) => {
-    return (jsxRuntimeExports.jsxs(Container, { "data-testid": "page-container", children: [jsxRuntimeExports.jsx("h1", { children: title }), children] }));
+    return (jsxRuntimeExports.jsxs(Container, { "data-testid": "page-container", children: [jsxRuntimeExports.jsx("h1", { children: title }), jsxRuntimeExports.jsx(jsxRuntimeExports.Fragment, { children: children })] }));
 };
 
 exports.Page = Page;
